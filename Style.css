@@ -52,8 +52,22 @@ body {
   padding: 6px; /* small padding inside the circle */
 }
 
-/* Make sure text inside the link is not underlined (span or anchor) */
-.icon-bar a, .icon-bar a span { text-decoration: none; }
+/* hide labels by default, show on hover/focus for desktop */
+.icon-bar a span {
+  display: inline-block;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.18s ease, opacity 0.18s ease;
+  text-decoration: none; 
+}
+.icon-bar a:hover span,
+.icon-bar a:focus span,
+.icon-bar a.active span {
+  max-width: 200px; /* allow text to expand */
+  opacity: 1;
+}
 
 .exp_flexbox{ 
   padding-left: 2rem; /* alternatives: 20px, 5%, or 10vw */
