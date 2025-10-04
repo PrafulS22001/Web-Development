@@ -127,18 +127,58 @@ p{
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-img{
-  align-content: center; 
-  width: 80%;
-  height: 40%;
+/* remove global img sizing; target images inside the .image container below */
+
+.image { 
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 5%;
+  flex-direction: row; /* vertical flow by default */
+  gap: 0.25%;
+  padding: 0.25%;
+  width: 100%;
+  background-color: #e9baff;
 }
 
+.image div{
+  padding-top: 10%;
+  margin: 1vh; 
+  font-size: 10%;
+  height: auto;
+  width: 100%;
+  background-color: #d6adad;
+}
+
+.image1{
+  padding: 0;
+  width: 100%;
+  height: autoS;
+
+}
 .image2{
-  width: 60%;
-  height: 20%;
+  width: 100%;
+  height: auto;
+} 
+
+/* Only target images inside the .image container */
+.image img {
+  position: relative;
+  display: block;
+  width: 100%;       /* fill the .image child box */
+  max-width: 480px  ;  /* don't get too wide on large screens */
+  height: 100%;   /* desired display height */
+  object-fit: cover; /* crop without distortion */
+  border-radius: 0;
+  margin: 0 auto;
+}
+
+/* image-box: a container that ensures the <img> fills the box */
+.image-box{
+  flex: 1 1 48%;      /* two-up layout on wide screens */
+  min-width: 220px;
+  overflow: hidden;
+}
+
+@media (max-width: 700px){
+  .image{ flex-direction: column; }
+  .image-box{ flex: 1 1 100%; }
+  .image img{ height: 180px; }
 }
