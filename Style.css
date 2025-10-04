@@ -3,7 +3,6 @@ body {
   padding: 0;
   height: 100vh;
   font-family: sans-serif;
-  backdrop-filter: blur(50px);
   background: linear-gradient(to bottom, rgb(182, 182, 255), rgb(183, 146, 253), rgb(253, 213, 253),rgb(250, 159, 250));
 }
 
@@ -14,6 +13,7 @@ body {
   width: 100%;             /* Full width */
   height: 35px;            /* Adjust as needed */
   display: flex;
+  backdrop-filter: blur(1vh);
   justify-content: space-around;
   align-items: center;
   z-index: 1000;           /*Ensures it stays above other content*/
@@ -129,10 +129,16 @@ p{
 
 img{
   align-content: center; 
-  width: 100%;
-  height: 30%;
+  width: 80%;
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  border-radius: 5%;
+}
+
+.image2{
+  width: 60%;
+  height: 20%;
 }
