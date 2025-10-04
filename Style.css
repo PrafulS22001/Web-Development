@@ -7,16 +7,16 @@ body {
 }
 
 .icon-bar {
-  position:fixed;         /* Keeps it stuck to the top */
-  top: 0;                  /* Aligns it to the top */
+  position:fixed;         
+  top: 0;                  
   left: 0;
-  width: 100%;             /* Full width */
-  height: 35px;            /* Adjust as needed */
+  width: 100%;             
+  height: 35px;            
   display: flex;
   backdrop-filter: blur(1vh);
   justify-content: space-around;
   align-items: center;
-  z-index: 1000;           /*Ensures it stays above other content*/
+  z-index: 1000;           
   box-shadow: 0 5px 10px rgba(102, 102, 102, 0.4);
   border-radius: 2%;
 
@@ -26,11 +26,11 @@ body {
   color: rgb(31, 31, 31);
   font-size: 100%;
   transition: transform 0.2s ease, color 0.2s ease;
-  text-decoration: none; /* remove underline for links */
+  text-decoration: none; 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px; /* space between icon and text */
+  gap: 6px; 
 }
 
 .icon-bar a:hover { 
@@ -44,15 +44,13 @@ body {
   color: #000000;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  display: inline-flex;/* Make the circular background smaller and centered around the icon */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 7%;
   height: 90%;
-  padding: 6px; /* small padding inside the circle */
+  padding: 6px;
 }
-
-/* hide labels by default, show on hover/focus for desktop */
 .icon-bar a span {
   display: inline-block;
   max-width: 0;
@@ -65,12 +63,12 @@ body {
 .icon-bar a:hover span,
 .icon-bar a:focus span,
 .icon-bar a.active span {
-  max-width: 200px; /* allow text to expand */
+  max-width: 200px; 
   opacity: 1;
 }
 
 .exp_flexbox{ 
-  padding-left: 2rem; /* alternatives: 20px, 5%, or 10vw */
+  padding-left: 2rem; 
     }
 
 h1{ 
@@ -86,7 +84,7 @@ p{
 
 .flexbox{ 
   display: flex;
-  flex-direction: row; /* horizontal layout */
+  flex-direction: row; 
   gap: 1%;
   padding: 5%;
   background-color: #c73535;
@@ -101,8 +99,8 @@ p{
 }
 
 .item1 {
-  flex-grow: 10%;/* Make item1 larger than the others */
-  flex: 1 1 100%; /* grow:1, shrink:1, basis:100% */
+  flex-grow: 10%;
+  flex: 1 1 100%; 
   min-width: 200px;
   padding: 1rem;
   background-color: #eef6ff;
@@ -127,11 +125,9 @@ p{
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* remove global img sizing; target images inside the .image container below */
-
 .image { 
   display: flex;
-  flex-direction: row; /* vertical flow by default */
+  flex-direction: row; 
   gap: 0.25%;
   padding: 0.25%;
   width: 100%;
@@ -158,21 +154,19 @@ p{
   height: auto;
 } 
 
-/* Only target images inside the .image container */
 .image img {
   position: relative;
   display: block;
-  width: 100%;       /* fill the .image child box */
-  max-width: 480px  ;  /* don't get too wide on large screens */
-  height: 100%;   /* desired display height */
-  object-fit: cover; /* crop without distortion */
+  width: 100%;       
+  max-width: 480px  ;  
+  height: 100%;   
+  object-fit: cover; 
   border-radius: 0;
   margin: 0 auto;
 }
 
-/* image-box: a container that ensures the <img> fills the box */
 .image-box{
-  flex: 1 1 48%;      /* two-up layout on wide screens */
+  flex: 1 1 48%;      
   min-width: 220px;
   overflow: hidden;
 }
