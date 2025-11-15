@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google maps</title>
+</head>
+<body>
+
+<h1>Task: Google maps- Search</h1>
+
+<iframe id="mapframe" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25275.738582532606!2d25.673533528125006!3d61.01410887613666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sfi!4v1763217881535!5m2!1sen!2sfi" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<br><br>
+
+<label for ="streetInput"> Street Address: </label>
+<input type="text" id="streetInput" placeholder="Type Street name"> 
+<label for ="cityInput"> City: </label>
+<input type="text" id="cityInput" placeholder="Type City"> 
+<button onclick = "searchPlace()">Search</button>
+
+<script> 
+    function searchPlace(){ 
+        const street = document.getElementById("streetInput").value; 
+        const city = document.getElementById("cityInput").value; 
+        const url = "https://www.google.com/maps?q=" + encodeURIComponent(street + " " + city) + "&output=embed";
+    document.getElementById("mapframe").src = url; 
+}
+</script>
+</body>
+</html>
