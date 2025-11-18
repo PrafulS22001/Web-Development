@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+<body>  
+    <h1> Task 1: Factorial Numbers </h1>
+    
+    <input type = "number" id = "t1-n1" placeholder = "Enter a number."> 
+    <button type = "button" onclick ="Task1()">Check</button>
+    <p id ="t1"></p>
+
+    <h1> Task 2: Add digits till N</h1>
+    
+    <input type = "number" id = "t2-n1" placeholder = "Enter a number."> 
+    <button type = "button" onclick ="Task2()">Check</button>
+    <p id ="t2"></p>
+
+    <h1> Task 3: Calculate sums of even and odds till N. </h1>
+    
+    <input type = "number" id = "t3-n1" placeholder = "Enter a number."> 
+    <button type = "button" onclick ="Task3()">Check</button>
+    <p id ="t3"></p>
+    
+    <script> 
+        function Task1(){ 
+            //Task 1
+            let num1 = parseInt(document.getElementById("t1-n1").value); 
+            let fact = 1;
+            if (num1 >= 0){ 
+                for (let i = 1; i<=num1; i++){
+                    fact *= i; 
+                }
+                    document.getElementById("t1").innerText = fact;     
+            } else { 
+                    document.getElementById("t1").innerText = "Unspecified"; 
+            }
+        }
+
+        function Task2(){ 
+            //Task 2
+            let num2 = parseInt(document.getElementById("t2-n1").value); 
+            let sum = 0; 
+            if (num2 >= 0){
+                for (let j = 1; j<=num2; j++){ 
+                    sum += j; 
+                }
+                document.getElementById("t2").innerText = sum; 
+            }else { 
+                document.getElementById("t2").innerText = "Unsepcified";
+            }
+        }
+
+        function Task3(){
+            //Task 3
+            let num3 = parseInt(document.getElementById("t3-n1").value);
+            let even = 0; 
+            let odd = 0;
+            if (num3 >= 0){ 
+                //For odd
+                for (let k = 1; k <= num3; k += 2){ 
+                    odd += k; 
+                }
+                //For Even
+                for (let l = 2; l <= num3; l = l += 2){ 
+                    even += l; 
+                }
+                document.getElementById("t3").innerText = "Sum of Odd = " + odd + ", Sum of Even = " + even;
+            }else { 
+                document.getElementById("t3").innerText = "Unsepcified";
+            } 
+        }
+    </script>
+</body>
+</html>
