@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Identity Code</title>
+</head>
+<body>
+    <h1> 1. Implement a function that checks the correctness of the personal identity number. </h1>
+    
+    <input type = "text" id = "t1-id" placeholder = "Enter the personal identity code." oninput ="Task1()">
+    <p id ="t1"></p>
+    
+    <h1> 2. Make a function that creates an ID. The initial part of the parameter that is passed to the function. </h1>
+    <input type = "text" id = "t2-DOB" placeholder = "Date: DD/MM/YYYY" oninput ="Task2()">
+    <input type = "text" id = "t2-Sex" placeholder = "Sex: F/M" oninput ="Task2()">
+    <p id ="t2"></p>
+    
+    <script> 
+        function Task1(){ 
+            //Task 1
+            let PIC = document.getElementById("t1-id").value;
+
+            if (PIC.length !== 11) {
+                document.getElementById("t1").innerText = "Invalid PIC format";
+                return;
+            }
+            
+            
+            const day = parseInt(PIC.slice(0,2)); 
+            const month = parseInt(PIC.slice (2, 4));
+            let year = parseInt(PIC.slice(4, 6));
+            const symbol = PIC.charAt(6); 
+            const ind_num = PIC.slice (7, 10); 
+            const control = PIC.charAt (10); 
+            let result; 
+            
+            if (symbol == "+") year += 1800; 
+            else if(symbol == "-") year += 1900; 
+            else if (symbol == "A") year += 2000;
+            else{ 
+                document.getElementById("t1").innerText = "Invalid symbol";
+                return; 
+            }
+
+            if (!ValidDate(day, month, year)) {
+                document.getElementById("t1").innerText = "Invalid date in PIC";
+                return;
+            }
+
+            const sex = parseInt(ind_num);
+            let gender; 
+            if (sex % 2 == 0) { 
+                gender = "Female";
+            }else { 
+                gender = "Male";
+            }
+
+            function ValidDate(day, month, year){ 
+                let Totaldays; 
+                switch (month) { 
+                    case 1: case 3: case 5: case 7: case 8: case 10: case 12: 
+                        Totaldays = 31; 
+                        break; 
+                    case 4: case 6: case 9: case 11: 
+                        Totaldays = 30; 
+                        break; 
+                    case 2: 
+                        if (year % 4 == 0 && year % 100 !== 0)  {
+                            Totaldays = 29; 
+                        }else {
+                            Totaldays = 28; 
+                        }
+                        break; 
+                    default: 
+                        return false;
+                }
+                return day >= 1 && day <= Totaldays; 
+            }
+        document.getElementById("t1").innerText = `DOB: ${day}.${month}.${year}, Gender: ${gender}, Control: ${control}`;
+        }
+        
+        function Task2(){ 
+            // Task 2
+            let DOB = document.getElementById("t2-DOB").value; 
+            let Sex_2 = document.getElementById ("t2-Sex").value;
+
+            const day_2 = parseInt(DOB.slice(0,2)); 
+            const month_2 = parseInt(DOB.slice (3, 5));
+            let year_2 = DOB.slice(6, 10);
+
+            let symbol_2; 
+            const yy = parseInt(year_2.slice(2, 4));
+            const yearNum = parseInt(year_2.slice(0, 2));
+            if (yearNum == 18) symbol_2 = "+";
+            else if (yearNum == 19) symbol_2 = "-";
+            else if (yearNum == 20) symbol_2 = "A";
+            else {
+                document.getElementById("t2").innerText = "Invalid century.";
+                return;
+            }
+
+
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            let ind_num2 = getRandomInt(2, 899);
+
+            if (Sex_2.toLowerCase() == "m"){ 
+                if (ind_num2 % 2 == 0) ind_num2++; 
+            }else if (Sex_2.toLowerCase() == "f"){ 
+                if (ind_num2 % 2 !== 0) ind_num2++; 
+            }else { 
+                document.getElementById("t2").innerText = "Invalid Gender.";
+                return; 
+            }
+
+                const ini_num = `${day_2}${month_2}${yy}${ind_num2}`;
+                const lookup = "0123456789ABCDEFHJKLMNPRSTUVWXY";
+                const remainder = ini_num % 31;
+                const controlchar = lookup.charAt(remainder);
+
+            
+            const final_PIC = `${day_2}${month_2}${yy}${symbol_2}${ind_num2}${controlchar}`;
+
+            document.getElementById("t2").innerText = final_PIC;
+        }
+    
+    </script> 
+</body>
+</html>
